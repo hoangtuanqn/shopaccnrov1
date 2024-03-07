@@ -1,0 +1,160 @@
+RewriteEngine On
+# TUANORIJSC : BẮT ĐẦU CHUYỂN HƯỚNG
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+# TUANORIJSC : KẾT THÚC CHUYỂN HƯỚNG
+RewriteRule ^login$ pages/client/Login.php [L]
+RewriteRule ^register$ pages/client/Register.php [L]
+RewriteRule ^login$ pages/client/Login.php [L]
+RewriteRule ^LoginAdmin$ pages/client/LoginAdmin.php [L]
+
+RewriteRule ^logout$ pages/client/Logout.php [L]
+#game
+RewriteRule ^nick/([A-Za-z0-9-_]+)$ pages/client/ListAcc.php?slug=$1 [L]
+RewriteRule ^chuyenmuc.html$ pages/client/ListAcc.php [L]
+RewriteRule ^sanpham/([A-Za-z0-9-_]+).html$ pages/client/ShowAcc.php?id=$1 [L]
+RewriteRule ^mua-ngay.html$ pages/view/Muangay.php [L]
+RewriteRule ^view/acc([0-9]+).html$ pages/view/ViewAcc.php?id=$1 [L]
+RewriteRule ^view/the([0-9]+).html$ pages/view/ViewThe.php?id=$1 [L]
+
+RewriteRule ^view/dichvu([0-9]+).html$ pages/view/Dichvu.php?id=$1 [L]
+RewriteRule ^view/Atm.html$ pages/view/Atm.php [L]
+RewriteRule ^ban-vang$ pages/client/Banvang.php [L]
+RewriteRule ^ban-ngoc$ pages/client/Banngoc.php [L]
+#dịch vụ
+RewriteRule ^dich-vu/([A-Za-z0-9-_]+)$ pages/client/Dichvu.php?slug=$1 [L]
+#vòng quay
+RewriteRule ^vongquay/([A-Za-z0-9-_]+).html$ pages/client/Vongquay.php?slug=$1 [L]
+RewriteRule ^xuly-quay.html$ controller/client/Vongquay.php [L]
+#profile
+RewriteRule ^profile/info$ pages/client/Info.php [L]
+RewriteRule ^profile/doithongtin$ pages/client/Doithongtin.php [L]
+RewriteRule ^profile/doimatkhau$ pages/client/Doimatkhau.php [L]
+RewriteRule ^profile/nhap-nick$ pages/client/Nhapnick.php [L]
+RewriteRule ^profile/bien-dong-so-du$ pages/client/Biendong.php [L]
+RewriteRule ^profile/tai-khoan-da-mua$ pages/client/AccMua.php [L]
+RewriteRule ^profile/random-da-mua$ pages/client/RandomMua.php [L]
+RewriteRule ^profile/dich-vu$ pages/client/LSDichVu.php [L]
+RewriteRule ^profile/vong-quay$ pages/client/LSVongquay.php [L]
+RewriteRule ^profile/rut-vang$ pages/client/Rutvang.php [L]
+RewriteRule ^profile/rut-ngoc$ pages/client/Rutngoc.php [L]
+
+RewriteRule ^profile/mua-vang$ pages/client/LSMuavang.php [L]
+RewriteRule ^profile/mua-the$ pages/client/LSMuaThe.php [L]
+
+RewriteRule ^profile/mua-ngoc$ pages/client/LSMuangoc.php [L]
+RewriteRule ^nap-the$ pages/client/Napthe.php [L]
+RewriteRule ^mua-the$ pages/client/Muathe.php [L]
+
+#controller xử lý
+RewriteRule ^buy.html$ controller/client/MuaAcc.php [L]
+RewriteRule ^LoginZALO$ controller/login/LoginZALO.php [L]
+RewriteRule ^LoginGOOGLE$ controller/login/LoginGOOGLE.php [L]
+RewriteRule ^HandleGG$ controller/login/HandleGG.php [L]
+
+
+#admin
+RewriteRule ^Admin$ pages/admin/Home.php [L]
+RewriteRule ^admin$ pages/admin/Home.php [L]
+RewriteRule ^Admin/$ pages/admin/Home.php [L]
+RewriteRule ^Admin/Home$ pages/admin/Home.php [L]
+RewriteRule ^Admin/DonMuaVang$ pages/admin/DonMuaVang.php [L]
+RewriteRule ^Admin/EditDonMuaVang/([0-9]+)$ pages/admin/EditDonMuaVang.php?id=$1 [L]
+RewriteRule ^Admin/DonMuaNgoc$ pages/admin/DonMuaNgoc.php [L]
+RewriteRule ^Admin/EditDonMuaNgoc/([0-9]+)$ pages/admin/EditDonMuaNgoc.php?id=$1 [L]
+RewriteRule ^Admin/EditDichvu/([0-9]+)$ pages/admin/EditDichvu.php?id=$1 [L]
+RewriteRule ^Admin/EditDonHang/([0-9]+)$ pages/admin/EditDonHang.php?id=$1 [L]
+
+
+RewriteRule ^Admin/Users$ pages/admin/Users.php [L]
+RewriteRule ^Admin/Administrator$ pages/admin/Administrator.php [L]
+
+RewriteRule ^Admin/EditUsers/([0-9]+)$ pages/admin/EditUser.php?id=$1 [L]
+RewriteRule ^Admin/Category$ pages/admin/Category.php [L]
+RewriteRule ^Admin/Random$ pages/admin/Random.php [L]
+RewriteRule ^Admin/Account-Sold$ pages/admin/Account-Sold.php [L]
+RewriteRule ^Admin/Cards$ pages/admin/Cards.php [L]
+RewriteRule ^Admin/SettingMuaVang$ pages/admin/SettingMuaVang.php [L]
+RewriteRule ^Admin/SettingMuaNgoc$ pages/admin/SettingMuaNgoc.php [L]
+RewriteRule ^Admin/Dichvu$ pages/admin/Dichvu.php [L]
+RewriteRule ^Admin/Vongquay$ pages/admin/Vongquay.php [L]
+RewriteRule ^Admin/HisNapthe$ pages/admin/HistoryNapthe.php [L]
+RewriteRule ^Admin/Dongtien$ pages/admin/Dongtien.php [L]
+RewriteRule ^Admin/HisVongQuay$ pages/admin/HisVongQuay.php [L]
+RewriteRule ^Admin/HisMuaAcc$ pages/admin/HisMuaAcc.php [L]
+RewriteRule ^Admin/NhapNick$ pages/admin/NhapNick.php [L]
+RewriteRule ^Admin/IpBlack$ pages/admin/IpBlack.php [L]
+RewriteRule ^Admin/Coupon$ pages/admin/Coupon.php [L]
+RewriteRule ^Admin/Add-Coupon$ pages/admin/Add-Coupon.php [L]
+RewriteRule ^Admin/Add-Vongquay$ pages/admin/Add-Vongquay.php [L]
+RewriteRule ^Admin/Setting$ pages/admin/Setting.php [L]
+RewriteRule ^Admin/BellTele$ pages/admin/BellTele.php [L]
+RewriteRule ^Admin/Partner$ pages/admin/Partner.php [L]
+RewriteRule ^Admin/Bank$ pages/admin/Bank.php [L]
+RewriteRule ^Admin/DonDichVu$ pages/admin/DonDichVu.php [L]
+RewriteRule ^Admin/LoginGOOGLE$ pages/admin/LoginGOOGLE.php [L]
+RewriteRule ^Admin/LoginZALO$ pages/admin/LoginZALO.php [L]
+RewriteRule ^Admin/Rutvang$ pages/admin/Rutvang.php [L]
+RewriteRule ^Admin/Rutngoc$ pages/admin/Rutngoc.php [L]
+
+
+
+RewriteRule ^Admin/EditCoupon/([0-9]+)$ pages/admin/EditCoupon.php?id=$1 [L]
+RewriteRule ^Admin/EditBank/([0-9]+)$ pages/admin/EditBank.php?id=$1 [L]
+
+RewriteRule ^Admin/AddDichvu/([0-9]+)$ pages/admin/AddDichvu.php?id=$1 [L]
+RewriteRule ^Admin/EditListDichvu/([0-9]+)$ pages/admin/EditListDichvu.php?id=$1 [L]
+RewriteRule ^Admin/EditCategory/([0-9]+)$ pages/admin/EditCategory.php?id=$1 [L]
+RewriteRule ^Admin/EditNhapNick/([0-9]+)$ pages/admin/EditNhapNick.php?id=$1 [L]
+RewriteRule ^Admin/EditRandom/([0-9]+)$ pages/admin/EditRandom.php?id=$1 [L]
+RewriteRule ^Admin/AddSelect/([0-9]+)$ pages/admin/AddSelect.php?id=$1 [L]
+RewriteRule ^Admin/Accounts/([A-Za-z0-9-]+) pages/admin/Accounts.php?id=$1 [L]
+RewriteRule ^Admin/Account/Edit/([A-Za-z0-9-]+) pages/admin/EditAccount.php?id=$1 [L]
+RewriteRule ^Admin/Randoms/([A-Za-z0-9-]+) pages/admin/Randoms.php?id=$1 [L]
+RewriteRule ^Admin/Random/Edit/([A-Za-z0-9-]+) pages/admin/EditRandoms.php?id=$1 [L]
+RewriteRule ^Admin/EditVongquay/([A-Za-z0-9-]+) pages/admin/EditVongquay.php?id=$1 [L]
+RewriteRule ^Admin/Topnap$ pages/admin/Topnap.php [L]
+RewriteRule ^Admin/SettingTopNap$ pages/admin/SettingTopNap.php [L]
+RewriteRule ^Admin/SettingMuaThe$ pages/admin/SettingMuaThe.php [L]
+RewriteRule ^Admin/EditMuaThe/([A-Za-z0-9-]+) pages/admin/EditMuaThe.php?id=$1 [L]
+RewriteRule ^Admin/AddThe/([A-Za-z0-9-]+) pages/admin/AddThe.php?id=$1 [L]
+RewriteRule ^Admin/EditThe/([A-Za-z0-9-]+) pages/admin/EditThe.php?id=$1 [L]
+RewriteRule ^Admin/EditRutvang/([A-Za-z0-9-]+) pages/admin/EditRutvang.php?id=$1 [L]
+RewriteRule ^Admin/EditRutngoc/([A-Za-z0-9-]+) pages/admin/EditRutngoc.php?id=$1 [L]
+RewriteRule ^Admin/Ruttien$ pages/admin/Ruttien.php [L]
+RewriteRule ^Admin/EditRuttien/([A-Za-z0-9-]+) pages/admin/EditRuttien.php?id=$1 [L]
+
+
+
+# CTV
+RewriteRule ^Partner$ pages/partner/Home.php [L]
+RewriteRule ^partner$ pages/partner/Home.php [L]
+RewriteRule ^Partner/$ pages/partner/Home.php [L]
+RewriteRule ^Partner/Home$ pages/partner/Home.php [L]
+RewriteRule ^Partner/Dongtien$ pages/partner/Dongtien.php [L]
+RewriteRule ^Partner/DonMuaVang$ pages/partner/DonMuaVang.php [L]
+RewriteRule ^Partner/DonMuaNgoc$ pages/partner/DonMuaNgoc.php [L]
+RewriteRule ^Partner/DonDichVu$ pages/partner/DonDichVu.php [L]
+RewriteRule ^Partner/Coupon$ pages/partner/Coupon.php [L]
+RewriteRule ^Partner/Category$ pages/partner/Category.php [L]
+RewriteRule ^Partner/Random$ pages/partner/Random.php [L]
+RewriteRule ^Partner/Dichvu$ pages/partner/Dichvu.php [L]
+RewriteRule ^Partner/AddDichvu/([0-9]+)$ pages/partner/AddDichvu.php?id=$1 [L]
+RewriteRule ^Partner/Randoms/([A-Za-z0-9-]+) pages/partner/Randoms.php?id=$1 [L]
+RewriteRule ^Partner/Random/Edit/([A-Za-z0-9-]+) pages/partner/EditRandoms.php?id=$1 [L]
+RewriteRule ^Partner/Accounts/([A-Za-z0-9-]+) pages/partner/Accounts.php?id=$1 [L]
+RewriteRule ^Partner/Account/Edit/([A-Za-z0-9-]+) pages/partner/EditAccount.php?id=$1 [L]
+RewriteRule ^Partner/EditDonHang/([0-9]+)$ pages/partner/EditDonHang.php?id=$1 [L]
+RewriteRule ^Partner/Partner$ pages/partner/Partner.php [L]
+RewriteRule ^Partner/HisMuaAcc$ pages/partner/HisMuaAcc.php [L]
+RewriteRule ^Partner/DonDichVuMe$ pages/partner/DonDichVuMe.php [L]
+RewriteRule ^Partner/Ruttien$ pages/partner/Ruttien.php [L]
+
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
