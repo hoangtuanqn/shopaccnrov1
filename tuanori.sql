@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 07, 2024 lúc 07:33 AM
+-- Thời gian đã tạo: Th3 07, 2024 lúc 07:49 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -734,6 +734,7 @@ INSERT INTO `select_category` (`id`, `category_game`, `author`) VALUES
 --
 
 CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL,
   `username` varchar(250) DEFAULT NULL,
   `password` varchar(250) DEFAULT NULL,
   `passwordc2` varchar(250) DEFAULT NULL,
@@ -761,8 +762,8 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`username`, `password`, `passwordc2`, `email`, `fullname`, `money`, `total_money`, `total_topnapthe`, `level`, `tokenlog`, `timereg`, `timeon`, `online`, `banned`, `ip`, `token_resetpas`, `reason_banned`, `bonus`, `iteam`, `iteam_ngoc`, `saimkad`) VALUES
-('tuanori', '8be9afa4ac293015623c5711cccbf30f', '8be9afa4ac293015623c5711cccbf30f', 'tuanori@gmail.com', 'Phạm Hoàng Tuấn', 407036, 626500, 626500, 'admin', '7e78e241388135bacf8fec42cf5c19a07049ba1d427c9b1c7c', '2024-02-29 21:49:49', '2024-03-07 10:25:55', 'ONLINE', 'ON', '::1', NULL, NULL, 1, 57, 30000, 6);
+INSERT INTO `users` (`id`, `username`, `password`, `passwordc2`, `email`, `fullname`, `money`, `total_money`, `total_topnapthe`, `level`, `tokenlog`, `timereg`, `timeon`, `online`, `banned`, `ip`, `token_resetpas`, `reason_banned`, `bonus`, `iteam`, `iteam_ngoc`, `saimkad`) VALUES
+(1, 'tuanori', '8be9afa4ac293015623c5711cccbf30f', '8be9afa4ac293015623c5711cccbf30f', 'tuanori@gmail.com', 'Phạm Hoàng Tuấn', 407036, 626500, 626500, 'admin', '7e78e241388135bacf8fec42cf5c19a07049ba1d427c9b1c7c', '2024-02-29 21:49:49', '2024-03-07 10:25:55', 'ONLINE', 'ON', '::1', NULL, NULL, 1, 57, 30000, 6);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -901,6 +902,12 @@ ALTER TABLE `select_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -1035,6 +1042,12 @@ ALTER TABLE `options`
 --
 ALTER TABLE `select_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
